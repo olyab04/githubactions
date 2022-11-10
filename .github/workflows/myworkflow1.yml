@@ -23,6 +23,10 @@ jobs:
         run: ansible --version
 
       - name: Check Env
-        run: env
+        run: |
+          echo $ANSIBLE_SSH_KEY > ansible_key
+          chmod 400 ansible_key
 
+      - name: Check Inventory
+        run: ansible -i hosts --private-key=ansible_key all -m ping 
      
