@@ -13,6 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       ANSIBLE_SSH_KEY: ${{ secrets.ANSIBLE_SSH_KEY }}
+      ANSIBLE_HOST_KEY_CHECKING: False
+      
     steps:
       - uses: actions/checkout@v3
 
