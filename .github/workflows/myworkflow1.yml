@@ -12,7 +12,6 @@ jobs:
   ansible:
     runs-on: ubuntu-latest
     env:
-      ANSIBLE_SSH_KEY: ${{ secrets.ANSIBLE_SSH_KEY }}
       ANSIBLE_HOST_KEY_CHECKING: False
       
     steps:
@@ -26,7 +25,7 @@ jobs:
 
       - name: Check Env
         run: |
-          echo $ANSIBLE_SSH_KEY > ansible_key
+          echo "${{ secrets.ANSIBLE_SSH_KEY }}" > ansible_key
           chmod 400 ansible_key
 
       - name: Check Inventory
