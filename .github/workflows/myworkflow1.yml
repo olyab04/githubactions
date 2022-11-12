@@ -29,5 +29,5 @@ jobs:
           chmod 400 ansible_key
 
       - name: Check Inventory
-        run: ansible -i hosts --private-key=ansible_key all -m ping 
+        run: ansible -i hosts --private-key=ansible_key all -m ping -u ec2-user
      
